@@ -10,7 +10,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.19.4",
     "@react-native-picker/picker": "^2.5.1",
+    "eslint-plugin-react-hooks": "^5.0.0-canary-ce2bc58a9-20231102",
     "react": "18.2.0",
     "react-native": "0.72.6",
     "react-native-progress-circle-2023": "^2.1.1"

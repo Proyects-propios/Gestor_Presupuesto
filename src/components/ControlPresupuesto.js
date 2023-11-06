@@ -1,10 +1,10 @@
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Pressable} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import globalStyles from './../styles/index';
 import {formatearCantidad} from './../helpers/index';
 import ProgressCircle from 'react-native-progress-circle-2023';
 
-const ControlPresupuesto = ({presupuesto, gastos}) => {
+const ControlPresupuesto = ({presupuesto, gastos, resetearApp}) => {
   const [disponible, setDisponible] = useState(0);
   const [gastado, setGastado] = useState(0);
   const [porcentaje, setPorcentaje] = useState(0);
@@ -30,7 +30,6 @@ const ControlPresupuesto = ({presupuesto, gastos}) => {
   return (
     <View style={styles.contenedor}>
       <View style={styles.centrarGrafico}>
-        {/* <Image source={require('../img/grafico.jpg')} style={styles.imagen} /> */}
         <ProgressCircle
           percent={porcentaje}
           radius={120}
@@ -44,6 +43,10 @@ const ControlPresupuesto = ({presupuesto, gastos}) => {
       </View>
 
       <View style={styles.contenedorTexto}>
+        <Pressable style={styles.boton} onPress={resetearApp}>
+          <Text style={styles.textoBoton}>Reiniciar App</Text>
+        </Pressable>
+
         <Text style={styles.valor}>
           <Text style={styles.label}>Presupuesto: {''}</Text>
           {formatearCantidad(presupuesto)}
@@ -68,9 +71,17 @@ const styles = StyleSheet.create({
   centrarGrafico: {
     alignItems: 'center',
   },
-  imagen: {
-    width: 250,
-    height: 250,
+  boton: {
+    backgroundColor: '#DB2777',
+    padding: 10,
+    marginBottom: 40,
+    borderRadius: 5,
+  },
+  textoBoton: {
+    textAlign: 'center',
+    color: '#fff',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
   contenedorTexto: {
     marginTop: 30,

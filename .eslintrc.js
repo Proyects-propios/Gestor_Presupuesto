@@ -6,5 +6,7 @@ module.exports = {
 
     // Desactiva las reglas de ESLint relacionadas con el formato
     'prettier/prettier': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };

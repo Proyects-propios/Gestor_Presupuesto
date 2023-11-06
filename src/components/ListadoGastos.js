@@ -31,10 +31,9 @@ const ListadoGastos = ({
             />
           ))}
 
-      {gastos.length === 0 ||
-        (gastosFiltrados.length === 0 && !!filtro && (
-          <Text style={styles.noGastos}>No hay gastos</Text>
-        ))}
+      {(gastos.length === 0 || (gastosFiltrados.length === 0 && !!filtro)) && (
+        <Text style={styles.noGastos}>No hay gastos</Text>
+      )}
     </View>
   );
 };
